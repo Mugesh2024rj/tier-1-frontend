@@ -9,8 +9,9 @@
 //   - Local development : http://localhost:8080
 //   - Kubernetes        : http://<backend-service-ip>:8080
 // -----------------------------------------------------------
-const API_BASE_URL = "http://localhost:8080";
+const API_BASE_URL = "";
 
+fetch("/employees")
 // -----------------------------------------------------------
 // DOM Element References
 // Grabbed once at startup to avoid repeated lookups
@@ -49,7 +50,7 @@ employeeForm.addEventListener("submit", async function (event) {
 
     try {
         // Send POST request to the backend
-        const response = await fetch(`${API_BASE_URL}/employees`, {
+        const response = await fetch("/employees", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"   // Tell backend we're sending JSON
@@ -95,7 +96,7 @@ async function loadEmployees() {
 
     try {
         // Send GET request to the backend
-        const response = await fetch(`${API_BASE_URL}/employees`);
+        const response = await fetch("/employees");
 
         if (!response.ok) {
             throw new Error(`Server returned status ${response.status}`);

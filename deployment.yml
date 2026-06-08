@@ -14,8 +14,8 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: employee-frontend:latest
-          imagePullPolicy: Never
+          image: mugesh202006/employee-frontend:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 80
 
